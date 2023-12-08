@@ -5,19 +5,9 @@ from .serializer import UserGetserializer
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Message
-User = get_user_model()
 
-#
-# @api_view(['GET'])
-# @permission_classes(IsAuthenticated, )
-# def get_user_list(request):
-#     try:
-#         user_obj = User.objects.exclude(id=request.user.id)
-#         serializer = UserGetserializer(user_obj, many=True)
-#         return Response(serializer.date)
-#     except Exception as e:
-#         print("Error getting list of users", str(e))
-#         return Response({"error": "Error getting list of users"}, status=400)
+
+User = get_user_model()
 
 
 class ListUsers(APIView):
