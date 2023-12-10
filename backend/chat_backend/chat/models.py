@@ -7,7 +7,8 @@ from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from django.contrib.auth import get_user_model, decorators
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import User
+
 
 # Create your models here.
 
@@ -18,6 +19,7 @@ class UserModel(Model):
 
     def __str__(self) -> str:
         return self.user.username
+
 
 class Message(Model):
     sender = ForeignKey(User, on_delete=CASCADE, related_name='sent_messages')
